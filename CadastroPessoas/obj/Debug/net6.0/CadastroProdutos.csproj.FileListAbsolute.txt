@@ -266,3 +266,5 @@ C:\Users\carlos.simim\Desktop\CrudAspNet\CadastroPessoas\obj\Debug\net6.0\refint
 C:\Users\carlos.simim\Desktop\CrudAspNet\CadastroPessoas\obj\Debug\net6.0\CadastroProdutos.pdb
 C:\Users\carlos.simim\Desktop\CrudAspNet\CadastroPessoas\obj\Debug\net6.0\CadastroProdutos.genruntimeconfig.cache
 C:\Users\carlos.simim\Desktop\CrudAspNet\CadastroPessoas\obj\Debug\net6.0\ref\CadastroProdutos.dll
+C:\Users\carlos.simim\Desktop\CrudAspNet\CadastroPessoas\bin\Debug\net6.0\WebMatrix.Data.dll
+C:\Users\carlos.simim\Desktop\CrudAspNet\CadastroPessoas\bin\Debug\net6.0\WebMatrix.WebData.dll

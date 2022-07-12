@@ -8,43 +8,28 @@
 
 <h4>Produto</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="CriarProduto">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
-            <div class="form-group">
-                <label asp-for="Descricao" class="control-label"></label>
-                <input asp-for="Descricao" class="form-control" />
-                <span asp-validation-for="Descricao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DefSituacaoProduto" class="control-label"></label>
-                <input asp-for="DefSituacaoProduto" class="form-control" />
-                <span asp-validation-for="DefSituacaoProduto" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DefUnidadeComercial" class="control-label"></label>
-                <input asp-for="DefUnidadeComercial" class="form-control" />
-                <span asp-validation-for="DefUnidadeComercial" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PesoLiquido" class="control-label"></label>
-                <input asp-for="PesoLiquido" class="form-control" />
-                <span asp-validation-for="PesoLiquido" class="text-danger"></span>
-            </div>
-            
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
 
+<form asp-action="CriarProduto" asp-controller="Produtos">       
+    <div>
+        <label asp-for="Descricao">Descrição do produto</label>
+        <input asp-for="Descricao" placeholder="Insira a descrição do produto" />
+    </div>      
+    <div>
+        <label asp-for="DefSituacaoProduto">Situação do produto</label>
+        <input asp-for="DefSituacaoProduto" placeholder="Insira a situação do produto" />
+    </div>      
+    <div>
+        <label asp-for="DefUnidadeComercial">Unidade comercial do produto</label>
+        <input asp-for="DefUnidadeComercial" placeholder="Insira a Unidade Comercial do produto" />
+    </div>     
+    <div>
+        <label asp-for="PesoLiquido">Peso Líquido do produto</label>
+        <input asp-for="PesoLiquido" placeholder="Insira Peso Líquido do produto" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>      
+</form>
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

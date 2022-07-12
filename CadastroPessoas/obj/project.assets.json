@@ -41,6 +41,27 @@
       "MessagePackAnalyzer/2.1.152": {
         "type": "package"
       },
+      "Microsoft.AspNet.WebPages.Data/3.2.9": {
+        "type": "package",
+        "compile": {
+          "lib/net45/WebMatrix.Data.dll": {}
+        },
+        "runtime": {
+          "lib/net45/WebMatrix.Data.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebPages.WebData/3.2.9": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.WebPages.Data": "3.2.9"
+        },
+        "compile": {
+          "lib/net45/WebMatrix.WebData.dll": {}
+        },
+        "runtime": {
+          "lib/net45/WebMatrix.WebData.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Razor.Language/6.0.0": {
         "type": "package",
         "compile": {
@@ -3318,6 +3339,36 @@
         "messagepackanalyzer.nuspec",
         "tools/install.ps1",
         "tools/uninstall.ps1"
+      ]
+    },
+    "Microsoft.AspNet.WebPages.Data/3.2.9": {
+      "sha512": "D6QnqWJ+d8Xr+M957eEECnY7gUPJmR+FLfn+L0hoCWrXQjNNmMnxGt8IVqXQAPlWJaJjrq6Kwh+9Eu3NvtxZMA==",
+      "type": "package",
+      "path": "microsoft.aspnet.webpages.data/3.2.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NET.icon.png",
+        "NET_Library_EULA_ENU.txt",
+        "lib/net45/WebMatrix.Data.dll",
+        "lib/net45/WebMatrix.Data.xml",
+        "microsoft.aspnet.webpages.data.3.2.9.nupkg.sha512",
+        "microsoft.aspnet.webpages.data.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebPages.WebData/3.2.9": {
+      "sha512": "Rrwovp6Ue75a3CckDF70NoEvURCW/Hjlqrn1BhRmPX8mNrAPyQFmve9+xYEopdo/cjRd65w7tkklpD9XCftBBg==",
+      "type": "package",
+      "path": "microsoft.aspnet.webpages.webdata/3.2.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NET.icon.png",
+        "NET_Library_EULA_ENU.txt",
+        "lib/net45/WebMatrix.WebData.dll",
+        "lib/net45/WebMatrix.WebData.xml",
+        "microsoft.aspnet.webpages.webdata.3.2.9.nupkg.sha512",
+        "microsoft.aspnet.webpages.webdata.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Razor.Language/6.0.0": {
@@ -9959,6 +10010,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Microsoft.AspNet.WebPages.WebData >= 3.2.9",
       "Microsoft.EntityFrameworkCore >= 6.0.6",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.6",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.6",
@@ -10011,6 +10063,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "Microsoft.AspNet.WebPages.WebData": {
+            "target": "Package",
+            "version": "[3.2.9, )"
+          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[6.0.6, )"
@@ -10059,5 +10115,27 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'Microsoft.AspNet.WebPages.Data 3.2.9' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' em vez da estrutura de destino do projeto 'net6.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "libraryId": "Microsoft.AspNet.WebPages.Data",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'Microsoft.AspNet.WebPages.WebData 3.2.9' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' em vez da estrutura de destino do projeto 'net6.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "libraryId": "Microsoft.AspNet.WebPages.WebData",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }
