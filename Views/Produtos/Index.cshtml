@@ -1,0 +1,54 @@
+﻿@model IEnumerable<CadastroProdutos.Models.Produto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Cadastros</h1>
+
+<p>
+    <a asp-action="CriarProduto">Cadastrar novo produto</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdutoID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DefSituacaoProduto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DefUnidadeComercial)
+            </th>
+            
+            <!--<th></th>-->
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProdutoID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DefSituacaoProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DefUnidadeComercial)
+            </td>
+            
+            <td>
+                <a asp-action="AtualizarProduto" asp-route-id="@item.ProdutoID">Edit</a> |
+                <a asp-action="ExcluirProduto" asp-route-id="@item.ProdutoID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
