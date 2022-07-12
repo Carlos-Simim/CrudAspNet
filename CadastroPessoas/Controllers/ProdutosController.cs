@@ -13,9 +13,10 @@ namespace CadastroProdutos.Controllers
             _contexto = contexto;
         }
         
-        public async Task <IActionResult> Index()
-        {
-            return View(await _contexto.Produtos.ToListAsync());
+        public ActionResult Index()
+        {            
+            var produtos = _contexto.Produtos.Include(p => p.DefSituacaoProduto);
+            return View( produtos.ToList());
         }
 
         [HttpGet]
@@ -25,15 +26,13 @@ namespace CadastroProdutos.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CriarProduto(Produto produto)
+        public ActionResult CriarProduto(Produto produto)
         {
-            if (ModelState.IsValid)
-            {
-                _contexto.Add(produto);
-                await _contexto.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            else return View(produto);
+            
+            _contexto.Add(produto);
+            _contexto.SaveChanges();
+            return RedirectToAction(nameof(Index));
+            
         }
 
         [HttpGet]

@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<CadastroProdutos.Models.Produto>
 
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -13,27 +14,28 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ProdutoID)
+                Código
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Descricao)
+                Descrição
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DefSituacaoProduto)
+                Situação
             </th>            
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+
+@foreach (Produto item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ProdutoID)
+                @item.ProdutoID
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
+                @item.Descricao
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DefSituacaoProduto)
+                @Html.DisplayFor(modelItem => item.DefSituacaoProduto.DescricaoSituacao)
             </td>
             
             <td>
