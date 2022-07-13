@@ -2,6 +2,9 @@
 
 @{
     ViewData["Title"] = "CriarProduto";
+    //IEnumerable<CadastroProdutos.Models.ProdutoEmbalagem> Embalagens;
+    IEnumerable<ProdutoEmbalagem> viewDataVariavel = ViewData["ProdutoEmbalagens"] as IEnumerable<ProdutoEmbalagem>;
+    IEnumerable<ProdutoEmbalagem> viewDataVariavel2 = ViewData["ProdutoEmbalagens2"] as IEnumerable<ProdutoEmbalagem>;
 }
 
 <h1>CriarProduto</h1>
@@ -9,23 +12,51 @@
 <h4>Produto</h4>
 <hr />
 
+
 <form asp-action="CriarProduto" asp-controller="Produtos">       
     <div>
         <label asp-for="Descricao">Descrição do produto</label>
-        <input asp-for="Descricao" placeholder="Insira a descrição do produto" />
+        <input asp-for="Descricao" />
     </div>      
     <div>
         <label asp-for="DefSituacaoProduto">Situação do produto</label>
-        <input asp-for="DefSituacaoProduto" placeholder="Insira a situação do produto" />
+        <input asp-for="DefSituacaoProduto" />
     </div>      
     <div>
         <label asp-for="DefUnidadeComercial">Unidade comercial do produto</label>
-        <input asp-for="DefUnidadeComercial" placeholder="Insira a Unidade Comercial do produto" />
+        <input asp-for="DefUnidadeComercial" />
     </div>     
     <div>
         <label asp-for="PesoLiquido">Peso Líquido do produto</label>
-        <input asp-for="PesoLiquido" placeholder="Insira Peso Líquido do produto" />
+        <input asp-for="PesoLiquido" />
     </div>
+    <div>
+        <br/>
+        Embalagens
+    </div>
+    @foreach (ProdutoEmbalagem item in viewDataVariavel) {    
+        <div>
+            ProdutoEmbalagemID: @item.ProdutoEmbalagemID
+        </div>            
+        <div>
+            DescricaoSituacao: @Html.DisplayFor(modelItem => item.DefSituacaoProdutoEmbalagem.DescricaoSituacao)
+        </div>            
+        <div>
+            Fator de conversão: @item.FatorDeConversao
+        </div>                          
+        <div>
+            ProdutoID: 
+            @{
+                foreach (ProdutoEmbalagem item2 in viewDataVariavel2) 
+                {
+                    @Html.DisplayFor(modelItem => item.Produto.ProdutoID);
+                    break;
+                }
+            }
+        </div>                           
+    }
+    <br/>
+
     <div class="form-group">
         <input type="submit" value="Create" class="btn btn-primary" />
     </div>      

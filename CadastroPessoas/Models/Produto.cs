@@ -6,6 +6,8 @@ namespace CadastroProdutos.Models
 {
     public class Produto
     {
+       
+
         [Key]
         //[DisplayName("Código")]
         public int ProdutoID { get; set; }
