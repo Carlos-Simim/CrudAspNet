@@ -37,10 +37,12 @@ namespace CadastroProdutos.Controllers
         }
 
         [HttpPost]
-        public IActionResult CriarProduto(string Descricao, int DefSituacaoProduto, int DefUnidadeComercial, decimal PesoLiquido)
+        public IActionResult CriarProduto(Produto produto)
         {
-            
-            _contexto.Database.ExecuteSqlRaw("Insert into Produtos Values({0},{1},{2},{3})", Descricao, DefSituacaoProduto, DefUnidadeComercial, PesoLiquido);
+            _contexto.Add(produto);
+            _contexto.SaveChanges();
+
+            //_contexto.Database.ExecuteSqlRaw("Insert into Produtos Values({0},{1},{2},{3})", Descricao, DefSituacaoProduto, DefUnidadeComercial, PesoLiquido);
             
             return RedirectToAction(nameof(Index));
 

@@ -9,25 +9,17 @@ namespace CadastroProdutos.Models
        
 
         [Key]
-        //[DisplayName("Código")]
         public int ProdutoID { get; set; }
 
-        /*[ForeignKey("ProdutoEmbalagemID")]
-        public virtual ProdutoEmbalagem ProdutoEmbalagem { get; set; }*/
-
         [Column(TypeName = "varchar(120)")]
-        //[DisplayName("Descrição")]
         public string Descricao { get; set; }
 
-        [ForeignKey("SituacaoProdutoID")]
-       //[DisplayName("Situação")]
+        [ForeignKey("SituacaoProdutoID")]  
         public virtual DefSituacaoProduto DefSituacaoProduto { get; set;}
 
         [ForeignKey("UnidadeComercialID")]
-        //[DisplayName("Unidade comercial")]
         public virtual DefUnidadeComercial DefUnidadeComercial { get; set;}
 
-        //[DisplayName("Peso Líquido")]
         public decimal PesoLiquido { get; set; }
 
     }
