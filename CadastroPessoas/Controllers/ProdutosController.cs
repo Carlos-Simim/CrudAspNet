@@ -18,7 +18,7 @@ namespace CadastroProdutos.Controllers
         
         public IActionResult Index()
         {            
-            var produtos = _contexto.Produtos.Include(p => p.DefSituacaoProduto);
+            var produtos = _contexto.Produtos.Include(p => p.DefSituacaoProdutoId);
             
             return View( produtos.ToList());
         }
@@ -37,9 +37,18 @@ namespace CadastroProdutos.Controllers
         }
 
         [HttpPost]
-        public IActionResult CriarProduto(Produto produto)
+        public IActionResult CriarProduto(String Descricao, int DefSituacaoProduto, int DefUnidadeComercial, decimal PesoLiquido)
         {
-            _contexto.Add(produto);
+            Produto produto = new Produto()
+            {
+                Descricao = Descricao,
+                //DefSituacaoProduto = DefSituacaoProduto,
+                //DefUnidadeComercial = DefUnidadeComercial,
+                PesoLiquido = PesoLiquido
+            };
+
+            _contexto.Produtos.Add(produto);
+           
             _contexto.SaveChanges();
 
             //_contexto.Database.ExecuteSqlRaw("Insert into Produtos Values({0},{1},{2},{3})", Descricao, DefSituacaoProduto, DefUnidadeComercial, PesoLiquido);

@@ -7,16 +7,15 @@ namespace CadastroProdutos.Models
     public class Produto
     {
        
-
         [Key]
-        public int ProdutoID { get; set; }
+        public int ProdutoId { get; set; }
 
         [Column(TypeName = "varchar(120)")]
         public string Descricao { get; set; }
 
-        [ForeignKey("SituacaoProdutoID")]  
-        public virtual DefSituacaoProduto DefSituacaoProduto { get; set;}
-
+        [ForeignKey("DefSituacaoProduto")]
+        public virtual DefSituacaoProduto DefSituacaoProdutoId { get; set;}
+       
         [ForeignKey("UnidadeComercialID")]
         public virtual DefUnidadeComercial DefUnidadeComercial { get; set;}
 

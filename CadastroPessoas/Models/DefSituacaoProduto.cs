@@ -7,7 +7,7 @@ namespace CadastroProdutos.Models
     {
 
         [Key]
-        public int SituacaoProdutoId { get; set; }
+        public int DefSituacaoProdutoId { get; set; }
 
         [Column(TypeName = "varchar(32)")]
         public string DescricaoSituacao { get; set; }

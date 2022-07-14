@@ -2,9 +2,6 @@
 
 @{
     ViewData["Title"] = "CriarProduto";
-    //IEnumerable<CadastroProdutos.Models.ProdutoEmbalagem> Embalagens;
-    IEnumerable<ProdutoEmbalagem> viewDataVariavel = ViewData["ProdutoEmbalagens"] as IEnumerable<ProdutoEmbalagem>;
-    IEnumerable<ProdutoEmbalagem> viewDataVariavel2 = ViewData["ProdutoEmbalagens2"] as IEnumerable<ProdutoEmbalagem>;
 }
 
 <h1>CriarProduto</h1>
@@ -19,8 +16,8 @@
         <input asp-for="Descricao" />
     </div>      
     <div>
-        <label asp-for="DefSituacaoProduto.SituacaoProdutoId">Situação do produto</label>
-        <input asp-for="DefSituacaoProduto.SituacaoProdutoId" />
+        <label asp-for="DefSituacaoProdutoId">Situação do produto</label>
+        <input asp-for="DefSituacaoProdutoId" />
     </div>      
     <div>
         <label asp-for="DefUnidadeComercial">Unidade comercial do produto</label>
@@ -34,28 +31,6 @@
         <br/>
         Embalagens
     </div>
-    @foreach (ProdutoEmbalagem item in viewDataVariavel) {    
-        <div>
-            ProdutoEmbalagemID: @item.ProdutoEmbalagemID
-        </div>            
-        <div>
-            DescricaoSituacao: @Html.DisplayFor(modelItem => item.DefSituacaoProdutoEmbalagem.DescricaoSituacao)
-        </div>            
-        <div>
-            Fator de conversão: @item.FatorDeConversao
-        </div>                          
-        <div>
-            ProdutoID: 
-            @{
-                foreach (ProdutoEmbalagem item2 in viewDataVariavel2) 
-                {
-                    @Html.DisplayFor(modelItem => item.Produto.ProdutoID);
-                    break;
-                }
-            }
-        </div>                           
-    }
-    <br/>
 
     <div class="form-group">
         <input type="submit" value="Create" class="btn btn-primary" />

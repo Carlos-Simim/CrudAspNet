@@ -29,18 +29,18 @@
 @foreach (Produto item in Model) {
         <tr>
             <td>
-                @item.ProdutoID
+                @item.ProdutoId
             </td>
             <td>
                 @item.Descricao
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DefSituacaoProduto.DescricaoSituacao)
+                @Html.DisplayFor(modelItem => item.DefSituacaoProdutoId)
             </td>
             
             <td>
-                <a asp-action="AtualizarProduto" asp-route-id="@item.ProdutoID">Edit</a> |
-                <a asp-action="ExcluirProduto" asp-route-id="@item.ProdutoID">Delete</a>
+                <a asp-action="AtualizarProduto" asp-route-id="@item.ProdutoId">Edit</a> |
+                <a asp-action="ExcluirProduto" asp-route-id="@item.ProdutoId">Delete</a>
             </td>
         </tr>
 }
