@@ -1,7 +1,7 @@
 ﻿@model CadastroProdutos.Models.Produto
 
 @{
-    ViewData["Title"] = "ExcluirProduto";
+    ViewData["Title"] = "ExcluirProduto";    
 }
 
 <h1>ExcluirProduto</h1>
@@ -22,19 +22,8 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Descricao)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DefSituacaoProduto)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DefSituacaoProduto)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DefUnidadeComercial)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DefUnidadeComercial)
         </dd>        
+        
     </dl>
     
     <form asp-action="ExcluirProduto">

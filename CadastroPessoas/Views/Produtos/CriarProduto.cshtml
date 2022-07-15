@@ -13,25 +13,20 @@
 <form asp-action="CriarProduto" asp-controller="Produtos">       
     <div>
         <label asp-for="Descricao">Descrição do produto</label>
-        <input asp-for="Descricao" />
+        <input asp-for="Descricao" />        
     </div>      
     <div>
         <label asp-for="DefSituacaoProduto">Situação do produto</label>
-        <input asp-for="DefSituacaoProduto" />
+        <input asp-for="DefSituacaoProdutoId" />
     </div>      
     <div>
         <label asp-for="DefUnidadeComercial">Unidade comercial do produto</label>
-        <input asp-for="DefUnidadeComercial" />
+        <input asp-for="DefUnidadeComercialId" />
     </div>     
     <div>
         <label asp-for="PesoLiquido">Peso Líquido do produto</label>
         <input asp-for="PesoLiquido" />
     </div>
-    <div>
-        <br/>
-        Embalagens
-    </div>
-
     <div class="form-group">
         <input type="submit" value="Create" class="btn btn-primary" />
     </div>      

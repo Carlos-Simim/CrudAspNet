@@ -18,5 +18,15 @@ namespace CadastroProdutos.Models
         {
 
         }
+        /*protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //Write Fluent API configurations here
+
+            //Property Configurations
+            modelBuilder.Entity<Produto>()
+                
+                .IsRequired();
+                
+        }*/
     }
 }

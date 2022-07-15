@@ -13,11 +13,13 @@ namespace CadastroProdutos.Models
         [Column(TypeName = "varchar(120)")]
         public string Descricao { get; set; }
 
-        [ForeignKey("SituacaoProdutoID")]
         public virtual DefSituacaoProduto DefSituacaoProduto { get; set;}
+        public int DefSituacaoProdutoId { get; set; }
        
-        [ForeignKey("UnidadeComercialID")]
         public virtual DefUnidadeComercial DefUnidadeComercial { get; set;}
+        public int DefUnidadeComercialId { get; set; }
+
+        public virtual ICollection <ProdutoEmbalagem> ProdutoEmbalagems { get; set; }
 
         public decimal PesoLiquido { get; set; }
 

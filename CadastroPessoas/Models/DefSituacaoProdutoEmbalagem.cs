@@ -12,5 +12,7 @@ namespace CadastroProdutos.Models
         [Column(TypeName = "varchar(32)")]
         public string DescricaoSituacao { get; set; }
 
+        public virtual ICollection<ProdutoEmbalagem> ProdutoEmbalagens { get; set; }
+
     }
 }

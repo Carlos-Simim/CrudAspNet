@@ -15,7 +15,7 @@
             <input type="hidden" asp-for="ProdutoId" />
             <div class="form-group">
                 <label asp-for="ProdutoId" class="control-label"></label>
-                <input asp-for="ProdutoId" class="form-control" />
+                <input asp-for="ProdutoId " class="form-control" readonly="@(true)"/>
                 <span asp-validation-for="ProdutoId" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -24,14 +24,14 @@
                 <span asp-validation-for="Descricao" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DefSituacaoProduto" class="control-label"></label>
-                <input asp-for="DefSituacaoProduto" class="form-control" />
-                <span asp-validation-for="DefSituacaoProduto" class="text-danger"></span>
+                <label asp-for="DefSituacaoProdutoId" class="control-label"></label>
+                <input asp-for="DefSituacaoProdutoId" class="form-control" />
+                <span asp-validation-for="DefSituacaoProdutoId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DefUnidadeComercial" class="control-label"></label>
-                <input asp-for="DefUnidadeComercial" class="form-control" />
-                <span asp-validation-for="DefUnidadeComercial" class="text-danger"></span>
+                <label asp-for="DefUnidadeComercialId" class="control-label"></label>
+                <input asp-for="DefUnidadeComercialId" class="form-control" />
+                <span asp-validation-for="DefUnidadeComercialId" class="text-danger"></span>
             </div>
             
             <div class="form-group">

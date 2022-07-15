@@ -8,10 +8,8 @@ namespace CadastroProdutos.Models
         [Key]
         public int ProdutoEmbalagemID { get; set; }
 
-        [ForeignKey("SituacaoProdutoEmbalagemID")]
         public virtual DefSituacaoProdutoEmbalagem DefSituacaoProdutoEmbalagem { get; set; }
 
-        [ForeignKey("ProdutoID")]
         public virtual Produto Produto { get; set; }
 
         public decimal FatorDeConversao { get; set; }

@@ -10,7 +10,9 @@ namespace CadastroProdutos.Models
         public int UnidadeComercialID { get; set; }
 
         [Column(TypeName = "varchar(32)")]
-        public string Descricao { get; set; } 
+        public string Descricao { get; set; }
+
+        public virtual ICollection<Produto> Produtos { get; set; }
 
     }
 }

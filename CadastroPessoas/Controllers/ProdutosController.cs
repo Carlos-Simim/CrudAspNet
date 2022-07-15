@@ -17,7 +17,7 @@ namespace CadastroProdutos.Controllers
         }
         
         public IActionResult Index()
-        {            
+        {
             var produtos = _contexto.Produtos.Include(p => p.DefSituacaoProduto);
             
             return View( produtos.ToList());
@@ -25,23 +25,16 @@ namespace CadastroProdutos.Controllers
 
         [HttpGet]
         public IActionResult CriarProduto()
-        {
-            
-            var embalagens = _contexto.ProdutoEmbalagens.Include(x => x.DefSituacaoProdutoEmbalagem);
-            var embalagens2 = _contexto.ProdutoEmbalagens.Include(y => y.Produto);
-
-            ViewData["ProdutoEmbalagens"] = embalagens.ToList();
-            ViewData["ProdutoEmbalagens2"] = embalagens2.ToList();
+        {            
 
             return View();
         }
 
         [HttpPost]
-        public IActionResult CriarProduto(String Descricao, int DefSituacaoProduto, int DefUnidadeComercial, decimal PesoLiquido)
+        public IActionResult CriarProduto(Produto produto)
         {
-            
-            _contexto.Database.ExecuteSqlRaw("Insert into Produtos Values({0},{1},{2},{3})", Descricao, DefSituacaoProduto, DefUnidadeComercial, PesoLiquido);
-            
+            _contexto.Add(produto);
+            _contexto.SaveChanges();            
             return RedirectToAction(nameof(Index));
 
         }
@@ -64,13 +57,10 @@ namespace CadastroProdutos.Controllers
         {
             if (id != null)
             {
-                if (ModelState.IsValid)
-                {
-                    _contexto.Update(produto);
-                    await _contexto.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
-                }
-                else return View(produto);
+                _contexto.Update(produto);
+                await _contexto.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+                
             }
 
             else return NotFound();
@@ -79,11 +69,10 @@ namespace CadastroProdutos.Controllers
 
         [HttpGet]
         public IActionResult ExcluirProduto(int? id)
-        {
-
+        {            
             var produto = _contexto.Produtos.Find(id);
-            return View(produto);
-           
+
+            return View(produto);           
 
         }
 
