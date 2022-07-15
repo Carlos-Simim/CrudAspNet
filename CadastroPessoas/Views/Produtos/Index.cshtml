@@ -5,44 +5,44 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Cadastros</h1>
 
-<p>
-    <a asp-action="CriarProduto">Cadastrar novo produto</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Código
-            </th>
-            <th>
-                Descrição
-            </th>
-            <th>
-                Situação
-            </th>            
-        </tr>
-    </thead>
-    <tbody>
-
-@foreach (Produto item in Model) {
-        <tr>
-            <td>
-                @item.ProdutoId
-            </td>
-            <td>
-                @item.Descricao
-            </td>            
-            <td>
-                @Html.DisplayFor(Model => item.DefSituacaoProduto.DescricaoSituacao)
-            </td>
-            
-            <td>
-                <a asp-action="AtualizarProduto" asp-route-id="@item.ProdutoId">Edit</a> |
-                <a asp-action="ExcluirProduto" asp-route-id="@item.ProdutoId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div id="Conteudo">
+    <div>Produtos cadastrados
+        <a asp-action="CriarProduto" id="Botao" class="btn btn-primary">Cadastrar</a>
+    </div>
+    <table class="table">
+        <thead>        
+            <tr>
+                <th>
+                    Código
+                </th>
+                <th>
+                    Descrição
+                </th>
+                <th>
+                    Situação
+                </th>            
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (Produto item in Model) 
+        {
+                <tr>
+                    <td>
+                        @item.ProdutoId
+                    </td>
+                    <td>
+                        @item.Descricao
+                    </td>            
+                    <td>
+                        @Html.DisplayFor(Model => item.DefSituacaoProduto.DescricaoSituacao)
+                    </td>
+                    <td>
+                        <a asp-action="AtualizarProduto" asp-route-id="@item.ProdutoId">Edit</a> |
+                        <a asp-action="ExcluirProduto" asp-route-id="@item.ProdutoId">Delete</a>
+                    </td>
+                </tr>
+        }
+        </tbody>
+    </table>
+</div>
