@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -24,20 +25,21 @@ namespace CadastroProdutos.Models
         public decimal PesoLiquido { get; set; }
 
 
-        public void VerificarEmbalagem(Contexto _contexto)
-        {            
-            if(_contexto.ProdutoEmbalagens.Find(this.ProdutoId) == null)
-            {               
-                ProdutoEmbalagem embalagem = new ProdutoEmbalagem();
-                embalagem.DefSituacaoProdutoEmbalagemId = 1;
-                embalagem.ProdutoId = this.ProdutoId;
-                embalagem.FatorDeConversao = 1;
+        public bool VerificarEmbalagem(Contexto _contexto)
+        {
+            var IdPesquisa = this.ProdutoId;
 
-                _contexto.Add(embalagem);
-                _contexto.SaveChanges();
+            var teste = new Produto();            
+
+
+            if (_contexto.Database.ExecuteSqlRaw("SELECT * FROM ProdutoEmbalagens WHERE ProdutoId = {0}", IdPesquisa) == -1)
+            {
+                return false;
 
             }           
+            return true;                     
         }
+
 
     }
 }

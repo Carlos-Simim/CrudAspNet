@@ -4,6 +4,7 @@
     ViewData["Title"] = "AtualizarProduto";
 }
 
+
 <p id="Header">Edição de produto</p>
 <hr />
 
@@ -24,13 +25,24 @@
     <div style="display: table-row">
         <div style="width: 200px; display: table-cell;">
             <label asp-for="DefSituacaoProduto">Situação</label>
-            <input asp-for="DefSituacaoProdutoId" class="form-control"/>
+            <select asp-for="DefSituacaoProdutoId" class="form-control">
+                <option value="1">Ativo</option>
+                <option value="2">Inativo</option>
+                <option value="3">Bloqueado</option>
+            </select>
         </div> 
         <div style="width: 30px; display: table-cell;">             
         </div>
         <div style="width: 200px; display: table-cell;">
             <label asp-for="DefUnidadeComercial">Unidade estoque</label>
-            <input asp-for="DefUnidadeComercialId" class="form-control"/>
+            <select asp-for="DefUnidadeComercialId" class="form-control">
+                <option value="1">CX - Caixa</option>
+                <option value="2">KG - Quilograma</option>
+                <option value="3">L - Litro</option>
+                <option value="4">PC - Peça</option>
+                <option value="5">PCT - Pacote</option>
+                <option value="6">UN - Unidade</option>
+            </select>
         </div> 
         <div style="width: 30px; display: table-cell;">             
         </div>
@@ -42,11 +54,7 @@
     <br>
             
     <div class="form-group">
-        <input type="submit" value="Salvar" class="btn btn-primary" id="BotaoVerde"/>    
+        <input type="submit" value="Salvar" class="btn btn-primary" id="BotaoVerde" @Html.AntiForgeryToken()/>    
         <a asp-action="Index" class="btn btn-primary" id="BotaoCinza">Voltar</a>
     </div>
 </form>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

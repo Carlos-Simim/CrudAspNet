@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CadastroProdutos.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20220715183719_Atualizacao")]
-    partial class Atualizacao
+    [Migration("20220718162337_Criacao")]
+    partial class Criacao
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -112,7 +112,7 @@ namespace CadastroProdutos.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProdutoEmbalagemID"), 1L, 1);
 
-                    b.Property<int>("DefSituacaoProdutoEmbalagemSituacaoProdutoEmbalagemID")
+                    b.Property<int>("DefSituacaoProdutoEmbalagemId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("FatorDeConversao")
@@ -123,7 +123,7 @@ namespace CadastroProdutos.Migrations
 
                     b.HasKey("ProdutoEmbalagemID");
 
-                    b.HasIndex("DefSituacaoProdutoEmbalagemSituacaoProdutoEmbalagemID");
+                    b.HasIndex("DefSituacaoProdutoEmbalagemId");
 
                     b.HasIndex("ProdutoId");
 
@@ -153,7 +153,7 @@ namespace CadastroProdutos.Migrations
                 {
                     b.HasOne("CadastroProdutos.Models.DefSituacaoProdutoEmbalagem", "DefSituacaoProdutoEmbalagem")
                         .WithMany("ProdutoEmbalagens")
-                        .HasForeignKey("DefSituacaoProdutoEmbalagemSituacaoProdutoEmbalagemID")
+                        .HasForeignKey("DefSituacaoProdutoEmbalagemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

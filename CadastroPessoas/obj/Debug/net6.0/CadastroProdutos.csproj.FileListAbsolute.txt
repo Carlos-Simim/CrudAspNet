@@ -535,3 +535,4 @@ C:\Users\Carlos\source\repos\Carlos-Simim\CrudAspNet\CadastroPessoas\obj\Debug\n
 C:\Users\Carlos\source\repos\Carlos-Simim\CrudAspNet\CadastroPessoas\obj\Debug\net6.0\CadastroProdutos.genruntimeconfig.cache
 C:\Users\Carlos\source\repos\Carlos-Simim\CrudAspNet\CadastroPessoas\obj\Debug\net6.0\ref\CadastroProdutos.dll
 C:\Users\Carlos\source\repos\Carlos-Simim\CrudAspNet\CadastroPessoas\bin\Debug\net6.0\DiscordRPC.dll
+C:\Users\carlos.simim\Desktop\CrudAspNet\CadastroPessoas\bin\Debug\net6.0\DiscordRPC.dll

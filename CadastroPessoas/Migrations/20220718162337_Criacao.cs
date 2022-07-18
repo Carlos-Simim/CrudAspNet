@@ -4,7 +4,7 @@
 
 namespace CadastroProdutos.Migrations
 {
-    public partial class teste : Migration
+    public partial class Criacao : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,22 +54,22 @@ namespace CadastroProdutos.Migrations
                     ProdutoId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Descricao = table.Column<string>(type: "varchar(120)", nullable: false),
-                    DefSituacaoProdutoSituacaoProdutoId = table.Column<int>(type: "int", nullable: false),
-                    DefUnidadeComercialUnidadeComercialID = table.Column<int>(type: "int", nullable: false),
+                    DefSituacaoProdutoId = table.Column<int>(type: "int", nullable: false),
+                    DefUnidadeComercialId = table.Column<int>(type: "int", nullable: false),
                     PesoLiquido = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Produtos", x => x.ProdutoId);
                     table.ForeignKey(
-                        name: "FK_Produtos_DefSituacaoProduto_DefSituacaoProdutoSituacaoProdutoId",
-                        column: x => x.DefSituacaoProdutoSituacaoProdutoId,
+                        name: "FK_Produtos_DefSituacaoProduto_DefSituacaoProdutoId",
+                        column: x => x.DefSituacaoProdutoId,
                         principalTable: "DefSituacaoProduto",
                         principalColumn: "SituacaoProdutoId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Produtos_DefUnidadeComercial_DefUnidadeComercialUnidadeComercialID",
-                        column: x => x.DefUnidadeComercialUnidadeComercialID,
+                        name: "FK_Produtos_DefUnidadeComercial_DefUnidadeComercialId",
+                        column: x => x.DefUnidadeComercialId,
                         principalTable: "DefUnidadeComercial",
                         principalColumn: "UnidadeComercialID",
                         onDelete: ReferentialAction.Cascade);
@@ -81,7 +81,7 @@ namespace CadastroProdutos.Migrations
                 {
                     ProdutoEmbalagemID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DefSituacaoProdutoEmbalagemSituacaoProdutoEmbalagemID = table.Column<int>(type: "int", nullable: false),
+                    DefSituacaoProdutoEmbalagemId = table.Column<int>(type: "int", nullable: false),
                     ProdutoId = table.Column<int>(type: "int", nullable: false),
                     FatorDeConversao = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
@@ -89,8 +89,8 @@ namespace CadastroProdutos.Migrations
                 {
                     table.PrimaryKey("PK_ProdutoEmbalagens", x => x.ProdutoEmbalagemID);
                     table.ForeignKey(
-                        name: "FK_ProdutoEmbalagens_DefSituacaoProdutoEmbalagem_DefSituacaoProdutoEmbalagemSituacaoProdutoEmbalagemID",
-                        column: x => x.DefSituacaoProdutoEmbalagemSituacaoProdutoEmbalagemID,
+                        name: "FK_ProdutoEmbalagens_DefSituacaoProdutoEmbalagem_DefSituacaoProdutoEmbalagemId",
+                        column: x => x.DefSituacaoProdutoEmbalagemId,
                         principalTable: "DefSituacaoProdutoEmbalagem",
                         principalColumn: "SituacaoProdutoEmbalagemID",
                         onDelete: ReferentialAction.Cascade);
@@ -103,9 +103,9 @@ namespace CadastroProdutos.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProdutoEmbalagens_DefSituacaoProdutoEmbalagemSituacaoProdutoEmbalagemID",
+                name: "IX_ProdutoEmbalagens_DefSituacaoProdutoEmbalagemId",
                 table: "ProdutoEmbalagens",
-                column: "DefSituacaoProdutoEmbalagemSituacaoProdutoEmbalagemID");
+                column: "DefSituacaoProdutoEmbalagemId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProdutoEmbalagens_ProdutoId",
@@ -113,14 +113,40 @@ namespace CadastroProdutos.Migrations
                 column: "ProdutoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Produtos_DefSituacaoProdutoSituacaoProdutoId",
+                name: "IX_Produtos_DefSituacaoProdutoId",
                 table: "Produtos",
-                column: "DefSituacaoProdutoSituacaoProdutoId");
+                column: "DefSituacaoProdutoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Produtos_DefUnidadeComercialUnidadeComercialID",
+                name: "IX_Produtos_DefUnidadeComercialId",
                 table: "Produtos",
-                column: "DefUnidadeComercialUnidadeComercialID");
+                column: "DefUnidadeComercialId");
+
+            migrationBuilder.InsertData(table: "DefSituacaoProduto", columns: new[] { "DescricaoSituacao" },
+                values: new object[,]
+            {
+                { "Ativo" },
+                { "Inativo" },
+                { "Bloqueado" }
+            });
+
+            migrationBuilder.InsertData(table: "DefSituacaoProdutoEmbalagem", columns: new[] { "DescricaoSituacao" },
+                            values: new object[,]
+                        {
+                { "Ativo" },
+                { "Inativo" }
+                        });
+
+            migrationBuilder.InsertData(table: "DefUnidadeComercial", columns: new[] { "Descricao" },
+                            values: new object[,]
+                        {
+                { "CX - Caixa" },
+                { "KG - Quilograma" },
+                {"L - Litro" },
+                {"PC - Peça" },
+                {"PCT - Pacote" },
+                {"UN - Unidade" }
+                        });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

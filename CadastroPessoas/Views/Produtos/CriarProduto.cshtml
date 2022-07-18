@@ -24,15 +24,34 @@
     
     <div style="display: table-row">
         <div style="width: 200px; display: table-cell;">
-            <label asp-for="DefSituacaoProduto">Situação</label>
-            <input asp-for="DefSituacaoProdutoId" class="form-control"/>
+            
+            <label asp-for="DefSituacaoProdutoId">Situação</label>
+            <select asp-for="DefSituacaoProdutoId" class="form-control">
+                <option value="" selected disabled hidden>Selecione</option>
+                <option value="1">Ativo</option>
+                <option value="2">Inativo</option>
+                <option value="3">Bloqueado</option>
+            </select>
+            <!--<input asp-for="DefSituacaoProdutoId" class="form-control"/>-->           
         </div> 
+
         <div style="width: 30px; display: table-cell;">             
         </div>
+
         <div style="width: 200px; display: table-cell;">
-            <label asp-for="DefUnidadeComercial">Unidade estoque</label>
-            <input asp-for="DefUnidadeComercialId" class="form-control"/>
+            <label asp-for="DefUnidadeComercialId">Unidade estoque</label>
+            <select asp-for="DefUnidadeComercialId" class="form-control">
+                <option value="" selected disabled hidden>Selecione</option>
+                <option value="1">CX - Caixa</option>
+                <option value="2">KG - Quilograma</option>
+                <option value="3">L - Litro</option>
+                <option value="4">PC - Peça</option>
+                <option value="5">PCT - Pacote</option>
+                <option value="6">UN - Unidade</option>
+            </select>
+            <!--<input asp-for="DefUnidadeComercialId" class="form-control"/>-->
         </div> 
+
         <div style="width: 30px; display: table-cell;">             
         </div>
         <div style="width: 200px; display: table-cell;">
@@ -41,9 +60,32 @@
         </div>
     </div>
     <br>
-    
+    <p id="Header">Embalagens</p>
+    <hr />
+    <div style="width: 200px; display: table-cell;">
+            <label asp-for="DefUnidadeComercial">Unidade</label>
+            <input asp-for="DefUnidadeComercialId" class="form-control" readonly="@(true)"/>
+    </div> 
+    <div style="width: 30px; display: table-cell;">  
+    </div>
+    <div style="width: 200px; display: table-cell;">
+            <label asp-for="ProdutoEmbalagems">Fator conv.</label>
+            <input asp-for="ProdutoEmbalagems.ElementAt(0).FatorDeConversao" class="form-control"/>
+    </div> 
+    <div style="width: 30px; display: table-cell;">  
+    </div>
+    <div style="width: 200px; display: table-cell;">
+            <label asp-for="ProdutoEmbalagems">Situação</label>
+            <select asp-for="ProdutoEmbalagems.ElementAt(0).DefSituacaoProdutoEmbalagemId" class="form-control">
+                <option value="" selected disabled hidden>Selecione</option>
+                <option value="1">Ativo</option>
+                <option value="2">Inativo</option>                
+            </select>
+            <!--<input asp-for="ProdutoEmbalagems.ElementAt(0).DefSituacaoProdutoEmbalagemId" class="form-control"/>-->
+    </div> 
+    <br>
     <div class="form-group">
-        <input type="submit" value="Salvar" class="btn btn-primary" id="BotaoVerde"/>    
+        <input type="submit" value="Salvar" class="btn btn-primary" id="BotaoVerde" @Html.AntiForgeryToken()/>    
         <a asp-action="Index" class="btn btn-primary" id="BotaoCinza">Voltar</a>
     </div>
 

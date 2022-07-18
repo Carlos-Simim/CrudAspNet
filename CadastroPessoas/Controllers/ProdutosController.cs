@@ -31,12 +31,36 @@ namespace CadastroProdutos.Controllers
         }
 
         [HttpPost]
-        public IActionResult CriarProduto(Produto produto)
-        {
-            _contexto.Add(produto);
+        [ValidateAntiForgeryToken()]
+        public IActionResult CriarProduto(Produto produto, ProdutoEmbalagem embalagem)
+        {         
+            
+            _contexto.Add(produto);            
             _contexto.SaveChanges();
 
-            produto.VerificarEmbalagem(_contexto);
+            if (embalagem.DefSituacaoProdutoEmbalagemId != 1 && embalagem.DefSituacaoProdutoEmbalagemId != 2)
+            {
+                if (produto.VerificarEmbalagem(_contexto) == false)
+                {
+                    ProdutoEmbalagem embalagem2 = new ProdutoEmbalagem
+                    {
+                        DefSituacaoProdutoEmbalagemId = 1,
+                        ProdutoId = produto.ProdutoId,
+                        FatorDeConversao = 1
+                    };
+
+                    _contexto.Add(embalagem2);
+                    _contexto.SaveChanges();
+                }
+            }
+            else
+            {
+                embalagem.ProdutoId = produto.ProdutoId;
+                _contexto.Add(embalagem);
+                _contexto.SaveChanges();
+            }
+
+            
 
             return RedirectToAction(nameof(Index));
 
@@ -58,21 +82,18 @@ namespace CadastroProdutos.Controllers
         }
         
         [HttpPost]
+        [ValidateAntiForgeryToken()]
         public async Task <IActionResult> AtualizarProduto(int? id, Produto produto)
         {
-            if (id != null)
-            {
-                _contexto.Update(produto);
-                await _contexto.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-                
-            }
-
-            else return NotFound();
+            
+            _contexto.Update(produto);
+            await _contexto.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+            
 
         }
-
-        [HttpGet]
+        
+        [HttpGet]        
         public IActionResult ExcluirProduto(int? id)
         {            
             var produto = _contexto.Produtos.Find(id);
@@ -81,18 +102,16 @@ namespace CadastroProdutos.Controllers
 
         }
 
+        
         [HttpPost]
-        public async Task<IActionResult> ExcluirProduto(int? id, Produto produto)
+        [ValidateAntiForgeryToken()]
+        public IActionResult ExcluirProduto(Produto produto)
         {
-            if (id != null)
-            {
-                _contexto.Remove(produto);
-                await _contexto.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-
-            else return NotFound();
-
+            
+            _contexto.Remove(produto);
+            _contexto.SaveChanges();
+            return RedirectToAction(nameof(Index));
+            
         }
 
 

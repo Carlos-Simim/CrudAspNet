@@ -5,9 +5,10 @@
     ViewData["Title"] = "Index";
 }
 
+<div id="ret" onload="getEndereco()"></div>
 
 <div id="Conteudo">
-    <div> <p id="Header">Produtos cadastrados<p>
+    <div> <p id="Header">Produtos cadastrados<p>       
         <a asp-action="CriarProduto" style="position: absolute; top: 0px; right: 0px;" 
         id="BotaoVerde" class="btn btn-primary"><i class="fa-solid fa-circle-plus"></i> Cadastrar</a>
         <hr />
@@ -37,19 +38,19 @@
                         @item.Descricao
                     </td>            
                     
-                    @if (item.DefSituacaoProduto.DescricaoSituacao == "ativo")
+                    @if (item.DefSituacaoProduto.DescricaoSituacao == "Ativo")
                     {
                         <td id="ativo">
                             @Html.DisplayFor(Model => item.DefSituacaoProduto.DescricaoSituacao)
                         </td>
                     }
-                    @if (item.DefSituacaoProduto.DescricaoSituacao == "inativo")
+                    @if (item.DefSituacaoProduto.DescricaoSituacao == "Inativo")
                     {
                         <td id="inativo">
                             @Html.DisplayFor(Model => item.DefSituacaoProduto.DescricaoSituacao)
                         </td>
                     }
-                    @if (item.DefSituacaoProduto.DescricaoSituacao == "bloqueado")
+                    @if (item.DefSituacaoProduto.DescricaoSituacao == "Bloqueado")
                     {
                         <td id="bloqueado">
                             @Html.DisplayFor(Model => item.DefSituacaoProduto.DescricaoSituacao)
