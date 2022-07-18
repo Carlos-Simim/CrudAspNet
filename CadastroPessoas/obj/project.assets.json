@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "DiscordRichPresence/1.0.175": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.5.0",
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/DiscordRPC.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/DiscordRPC.dll": {}
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
@@ -3277,6 +3290,23 @@
     }
   },
   "libraries": {
+    "DiscordRichPresence/1.0.175": {
+      "sha512": "qSWobPTbvHh9gOoBYT8C8eUhKtVdBI/WvW7GY9lNMEtsZIpL6nxCvYJwjsGL3dqlEAGY5k0vdq+wnuDLVBSV2w==",
+      "type": "package",
+      "path": "discordrichpresence/1.0.175",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "discordrichpresence.1.0.175.nupkg.sha512",
+        "discordrichpresence.nuspec",
+        "lib/net35/DiscordRPC.dll",
+        "lib/net35/DiscordRPC.pdb",
+        "lib/net35/DiscordRPC.xml",
+        "lib/netstandard2.0/DiscordRPC.dll",
+        "lib/netstandard2.0/DiscordRPC.pdb",
+        "lib/netstandard2.0/DiscordRPC.xml"
+      ]
+    },
     "Humanizer.Core/2.8.26": {
       "sha512": "OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
       "type": "package",
@@ -10009,6 +10039,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "DiscordRichPresence >= 1.0.175",
       "Microsoft.AspNet.WebPages.WebData >= 3.2.9",
       "Microsoft.EntityFrameworkCore >= 6.0.6",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.6",
@@ -10028,7 +10059,7 @@
       "projectName": "CadastroProdutos",
       "projectPath": "C:\\Users\\Carlos\\source\\repos\\Carlos-Simim\\CrudAspNet\\CadastroPessoas\\CadastroProdutos.csproj",
       "packagesPath": "C:\\Users\\Carlos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Carlos\\Source\\Repos\\Carlos-Simim\\CrudAspNet\\CadastroPessoas\\obj\\",
+      "outputPath": "C:\\Users\\Carlos\\source\\repos\\Carlos-Simim\\CrudAspNet\\CadastroPessoas\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10057,6 +10088,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "DiscordRichPresence": {
+            "target": "Package",
+            "version": "[1.0.175, )"
+          },
           "Microsoft.AspNet.WebPages.WebData": {
             "target": "Package",
             "version": "[3.2.9, )"

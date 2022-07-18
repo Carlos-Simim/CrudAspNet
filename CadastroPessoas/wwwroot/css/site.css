@@ -17,12 +17,56 @@ body {
   margin-bottom: 60px;
 }
 
-#Botao {
-    position: absolute;
-    top: 0px;
-    right: 0px;
+#BotaoVerde {
+    color: white;
+    background-color: darkcyan;
+}
+
+#BotaoCinza{
+    color: dimgrey;
+    background-color: white;
 }
 
 #Conteudo{
     position: relative;
+}
+
+#Icones{
+    color: black;
+}
+
+#MenuLateral {
+    background-color: darkslategrey;
+    color: white;
+}
+
+#ativo {
+    color: white;
+    background-color: darkcyan;
+}
+
+#inativo{
+    color: white;
+    background-color: orangered;
+}
+
+#bloqueado {
+    color: white;
+    background-color: lightgrey;
+}
+
+#Header{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+#WarningBody {
+    color: darkred;
+    text-align: center;
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+#WarningWrappper{
+    background-color:red;
+    opacity: 0.2;
 }

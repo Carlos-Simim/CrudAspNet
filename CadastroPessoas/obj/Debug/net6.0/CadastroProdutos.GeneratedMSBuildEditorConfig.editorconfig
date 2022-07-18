@@ -15,20 +15,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Carlos\source\repos\Carlos-Simim\CrudAspNet\CadastroPessoas
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Carlos/source/repos/Carlos-Simim/CrudAspNet/CadastroPessoas/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Carlos/source/repos/Carlos-Simim/CrudAspNet/CadastroPessoas/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Carlos/source/repos/Carlos-Simim/CrudAspNet/CadastroPessoas/Views/Produtos/AtualizarProduto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b3NcQXR1YWxpemFyUHJvZHV0by5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Carlos/source/repos/Carlos-Simim/CrudAspNet/CadastroPessoas/Views/Produtos/CriarProduto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b3NcQ3JpYXJQcm9kdXRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Carlos/source/repos/Carlos-Simim/CrudAspNet/CadastroPessoas/Views/Produtos/DetalhesProduto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b3NcRGV0YWxoZXNQcm9kdXRvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Carlos/source/repos/Carlos-Simim/CrudAspNet/CadastroPessoas/Views/Produtos/ExcluirProduto.cshtml]

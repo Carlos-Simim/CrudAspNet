@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "CmZmCpUVUpENUydyJcc0OPegLJdXHkjYKtG3Nnl4RuwmcrlLEanVj8zCi6BYqRklK6EfNi4s2xzhSt6kl6YIog==",
+  "dgSpecHash": "SRhoPGWvZifqICbG/aeRG9XsDk9EAwgsL0l22/mNVEOviBVqanDGnl7ahjM4G9ol3cFicYWePofD97YGUrbSVQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Carlos\\source\\repos\\Carlos-Simim\\CrudAspNet\\CadastroPessoas\\CadastroProdutos.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Carlos\\.nuget\\packages\\discordrichpresence\\1.0.175\\discordrichpresence.1.0.175.nupkg.sha512",
     "C:\\Users\\Carlos\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Carlos\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\Carlos\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",

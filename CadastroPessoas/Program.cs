@@ -9,8 +9,6 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<Contexto>(opcoes => opcoes.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=CadastroProdutos;"));
 
-//ConfigurationManager.ConnectionStrings["ConexaoBd"].ConnectionString;
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -31,6 +29,6 @@ app.UseAuthorization();
 //Define a página inicial
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Produtos}/{action=Index}/{id?}");
 
 app.Run();

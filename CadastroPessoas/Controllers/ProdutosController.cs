@@ -34,22 +34,27 @@ namespace CadastroProdutos.Controllers
         public IActionResult CriarProduto(Produto produto)
         {
             _contexto.Add(produto);
-            _contexto.SaveChanges();            
+            _contexto.SaveChanges();
+
+            produto.VerificarEmbalagem(_contexto);
+
             return RedirectToAction(nameof(Index));
 
+        }
+
+        public IActionResult DetalhesProduto (int? id)
+        {
+            Produto produto = _contexto.Produtos.Find(id);
+            return View(produto);
         }
 
         [HttpGet]
         public IActionResult AtualizarProduto(int? id)
         {
-            if (id != null)
-            {
-                Produto produto = _contexto.Produtos.Find(id);
-                return View(produto);
-            }
-
-            else return NotFound();
-
+            
+            Produto produto = _contexto.Produtos.Find(id);
+            return View(produto);
+            
         }
         
         [HttpPost]

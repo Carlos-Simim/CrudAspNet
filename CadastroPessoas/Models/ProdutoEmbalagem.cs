@@ -10,7 +10,11 @@ namespace CadastroProdutos.Models
 
         public virtual DefSituacaoProdutoEmbalagem DefSituacaoProdutoEmbalagem { get; set; }
 
+        public int DefSituacaoProdutoEmbalagemId { get; set; }
+
         public virtual Produto Produto { get; set; }
+
+        public int ProdutoId { get; set; }
 
         public decimal FatorDeConversao { get; set; }
 

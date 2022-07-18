@@ -7,8 +7,10 @@
 
 
 <div id="Conteudo">
-    <div>Produtos cadastrados
-        <a asp-action="CriarProduto" id="Botao" class="btn btn-primary">Cadastrar</a>
+    <div> <p id="Header">Produtos cadastrados<p>
+        <a asp-action="CriarProduto" style="position: absolute; top: 0px; right: 0px;" 
+        id="BotaoVerde" class="btn btn-primary"><i class="fa-solid fa-circle-plus"></i> Cadastrar</a>
+        <hr />
     </div>
     <table class="table">
         <thead>        
@@ -34,14 +36,33 @@
                     <td>
                         @item.Descricao
                     </td>            
-                    <td>
-                        @Html.DisplayFor(Model => item.DefSituacaoProduto.DescricaoSituacao)
-                    </td>
-                    <td>
-                        <a asp-action="AtualizarProduto" asp-route-id="@item.ProdutoId">Edit</a> |
-                        <a asp-action="ExcluirProduto" asp-route-id="@item.ProdutoId">Delete</a>
+                    
+                    @if (item.DefSituacaoProduto.DescricaoSituacao == "ativo")
+                    {
+                        <td id="ativo">
+                            @Html.DisplayFor(Model => item.DefSituacaoProduto.DescricaoSituacao)
+                        </td>
+                    }
+                    @if (item.DefSituacaoProduto.DescricaoSituacao == "inativo")
+                    {
+                        <td id="inativo">
+                            @Html.DisplayFor(Model => item.DefSituacaoProduto.DescricaoSituacao)
+                        </td>
+                    }
+                    @if (item.DefSituacaoProduto.DescricaoSituacao == "bloqueado")
+                    {
+                        <td id="bloqueado">
+                            @Html.DisplayFor(Model => item.DefSituacaoProduto.DescricaoSituacao)
+                        </td>
+                    }
+                    
+                    <td>                        
+                        <a asp-action="AtualizarProduto" asp-route-id="@item.ProdutoId"><i class="fa-solid fa-pencil" id="Icones"></i></a>
+                        <a asp-action="DetalhesProduto" asp-route-id="@item.ProdutoId"><i class="fa-solid fa-eye" id="Icones"></i></a>                                                                    
+                        <a asp-action="ExcluirProduto" asp-route-id="@item.ProdutoId"><i class="fa-solid fa-trash-can" id="Icones"></i></a>
                     </td>
                 </tr>
+                
         }
         </tbody>
     </table>

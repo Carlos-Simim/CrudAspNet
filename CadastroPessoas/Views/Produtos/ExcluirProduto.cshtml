@@ -1,34 +1,56 @@
 ﻿@model CadastroProdutos.Models.Produto
 
 @{
-    ViewData["Title"] = "ExcluirProduto";    
+    ViewData["Title"] = "ExcluirProduto";
+
 }
+<p id="Header">Exclusão de produto</p>
+<hr />
 
-<h1>ExcluirProduto</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<div id="WarningWrapper">
+    <div id="WarningBody">
+        <p><i class="fa-solid fa-triangle-exclamation"></i> Deseja realmente deletar esse registro?</p>
+    </div>
+</div>
+
 <div>
-    <h4>Produto</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProdutoId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProdutoId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Descricao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Descricao)
-        </dd>        
-        
-    </dl>
+    <div style="display: table-row">
+        <div style="width: 200px; display: table-cell;">
+            <label asp-for="ProdutoId" class="control-label">Código</label>
+            <input asp-for="ProdutoId " class="form-control" readonly="@(true)"/>
+        </div>
+        <div style="width: 30px; display: table-cell;">             
+        </div>
+         <div style="width: 1000px; display: table-cell;">
+            <label asp-for="Descricao">Descrição</label>
+            <input asp-for="Descricao" class="form-control" readonly="@(true)"/>
+        </div>
+    </div>      
     
+    <div style="display: table-row">
+        <div style="width: 200px; display: table-cell;">
+            <label asp-for="DefSituacaoProduto">Situação</label>
+            <input asp-for="DefSituacaoProdutoId" class="form-control" readonly="@(true)"/>
+        </div> 
+        <div style="width: 30px; display: table-cell;">             
+        </div>
+        <div style="width: 200px; display: table-cell;">
+            <label asp-for="DefUnidadeComercial">Unidade estoque</label>
+            <input asp-for="DefUnidadeComercialId" class="form-control" readonly="@(true)"/>
+        </div> 
+        <div style="width: 30px; display: table-cell;">             
+        </div>
+        <div style="width: 200px; display: table-cell;">
+            <label asp-for="PesoLiquido">Peso líquido (KG)</label>
+            <input asp-for="PesoLiquido" class="form-control" readonly="@(true)"/>
+        </div>
+    </div>
+    <br>
+
     <form asp-action="ExcluirProduto">
         <input type="hidden" asp-for="ProdutoId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Deletar" class="btn btn-primary" id="BotaoVerde" />
+        <a asp-action="Index" class="btn btn-primary" id="BotaoCinza">Voltar</a>
     </form>
 </div>

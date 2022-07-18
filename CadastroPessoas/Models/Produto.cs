@@ -23,5 +23,21 @@ namespace CadastroProdutos.Models
 
         public decimal PesoLiquido { get; set; }
 
+
+        public void VerificarEmbalagem(Contexto _contexto)
+        {            
+            if(_contexto.ProdutoEmbalagens.Find(this.ProdutoId) == null)
+            {               
+                ProdutoEmbalagem embalagem = new ProdutoEmbalagem();
+                embalagem.DefSituacaoProdutoEmbalagemId = 1;
+                embalagem.ProdutoId = this.ProdutoId;
+                embalagem.FatorDeConversao = 1;
+
+                _contexto.Add(embalagem);
+                _contexto.SaveChanges();
+
+            }           
+        }
+
     }
 }

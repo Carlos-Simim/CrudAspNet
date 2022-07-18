@@ -11,7 +11,7 @@
         "projectName": "CadastroProdutos",
         "projectPath": "C:\\Users\\Carlos\\source\\repos\\Carlos-Simim\\CrudAspNet\\CadastroPessoas\\CadastroProdutos.csproj",
         "packagesPath": "C:\\Users\\Carlos\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Carlos\\Source\\Repos\\Carlos-Simim\\CrudAspNet\\CadastroPessoas\\obj\\",
+        "outputPath": "C:\\Users\\Carlos\\source\\repos\\Carlos-Simim\\CrudAspNet\\CadastroPessoas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "DiscordRichPresence": {
+              "target": "Package",
+              "version": "[1.0.175, )"
+            },
             "Microsoft.AspNet.WebPages.WebData": {
               "target": "Package",
               "version": "[3.2.9, )"
